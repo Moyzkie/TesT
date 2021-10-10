@@ -47,6 +47,8 @@ class Pages extends  CI_Controller
         );
         $regiter_user = new RegisterModel;
         $regiter_user->Register_User($data);
+
+        ///asasasas
      }
 
     }
