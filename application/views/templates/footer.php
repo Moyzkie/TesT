@@ -5,6 +5,11 @@
   <script src="<?= base_url();?>assets/js/jquery.magnific-popup.js"></script>
   <script src="<?= base_url();?>assets/js/jquery.firstVisitPopup.js"></script>
   <script src="<?= base_url();?>assets/js/custom.js"></script>
-
+  <script>
+     function hide(){
+       document.getElementById('hide').remove();
+     }
+     setTimeout("hide()",3000);
+</script>   
 </body>
 </html>

@@ -478,7 +478,7 @@ h6 {
 	1.4 Button 
 ----------------------------------------------- */
 .btn {
-	background: #e74c3c none repeat scroll 0 0;
+	background: #326431 none repeat scroll 0 0;
 	border-radius: 0;
 	color: #fff;
 	padding: 8px 20px;
@@ -486,7 +486,7 @@ h6 {
 	font-weight: 500;
 }
 .btn:hover, .btn:focus, .btn.focus {
-	background: #000 none repeat scroll 0 0;
+	background: #268d32 none repeat scroll 0 0;
 	color: #fff;
 	font-weight: 600;
 	text-decoration: none;
@@ -1054,7 +1054,7 @@ label.checkme {
 	text-transform: uppercase;
 }
 #menu > li > a:hover, #menu > li > a:focus {
-	background-color: #e74c3c;
+	background: #326431 none repeat scroll 0 0;
 	color: #fff;
 }
 #menu .mega-dropdown:hover > a, #menu .mega-dropdown > a:hover, #menu .mega-dropdown > a:focus, #menu .dropdown:hover > a {
@@ -1066,7 +1066,7 @@ label.checkme {
 	color: #fff;
 }
 #menu > li > a::before {
-	background: #e74c3c none repeat scroll 0 0;
+	background: #326431 none repeat scroll 0 0;
 	bottom: 0;
 	content: "";
 	display: block;
@@ -1315,7 +1315,7 @@ label.checkme {
 	2.6 Header bottom
 ----------------------------------------------- */
 .header-bottom {
-	background: #000;
+	background: #326431;
 }
 .header-bottom-left {
 	background: #f2f2f2 none repeat scroll 0 0;
@@ -1365,7 +1365,7 @@ label.checkme {
 	font-style: normal;
 }
 .offers i {
-	color: #e74c3c;
+	color: #f2f2f2;
 	margin: 0 10px 0 30px;
 }
 .menu-bar {
@@ -1373,7 +1373,7 @@ label.checkme {
 	width: 100%;
 }
 .category {
-	background: #e74c3c none repeat scroll 0 0;
+	background: #268d32 none repeat scroll 0 0;
 	color: #fff;
 	font-size: 14px;
 	font-weight: 600;
@@ -2478,4 +2478,13 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .nav > li > a {
 	padding: 6px;
 }
+.overflow{
+width: 330px;
+height:400px;
+overflow:scroll;
+}
+
+
+
+
 /* =====  END RESPONSIVE CSS  =====*/

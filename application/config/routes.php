@@ -49,12 +49,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['login']['GET'] = 'pages/login_form';
 
-$route['register']['POST'] = 'pages/register';
+$route['signup']['GET'] = 'CustomerSignUp/SignUp_Form';
+$route['signup']['POST'] = 'CustomerSignUp/SignUp';
+$route['login']['GET'] = 'CustomerLogin/login_Form';
+$route['login']['POST'] = 'CustomerLogin/login';
+$route['logout'] = 'CustomerLogout/logout';
+$route['forgotpassword']['GET']= 'ForgotPassword/forgotpass_form';
+$route['ChangePassword'] = 'ForgotPassword/get_recovery_token';
+$route['account_recovery']['POST'] = 'ForgotPassword/sendrecovery_token';
+$route['Save'] = 'ForgotPassword/get_recovery_token';
+$route['checkout'] = 'CustomerCheackOut/checkout';
+$route['myaccount'] = 'CustomerAccount/myaccount';
+$route['send'] = 'mail/send';
+$route['EmailVerify'] = 'EmailVerify/verify';
+$route['default_controller'] = 'CustomerHome/Home';
 
-$route['default_controller'] = 'pages/view';
-$route['(:any)'] = 'pages/view/$1';
+$route['(:any)'] = 'CustomerHome/Home/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
