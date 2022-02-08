@@ -319,7 +319,7 @@
                         <i class="icon fa fa-cheack"></i> <?= $this->session->flashdata('c_status');?>
                         </div>
                     <?php  endif; ?>
-                      <form id="login-form" action="http://192.168.1.13/PharmacyV.1/Save?recovery_token=<?=$recovery_token?>" method="POST">
+                      <form id="login-form" action="http://localhost:8000/PharmacyV.1/Save?recovery_token=<?=$recovery_token?>" method="POST">
                         <div class="form-group">
                           <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="New password">
                           <span  class="text-danger"><?php echo form_error('password');?></span>

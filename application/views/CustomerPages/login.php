@@ -49,15 +49,16 @@
             <div class="col-sm-6">
               <ul class="header-top-right text-right">
               <li class="cart"><a href="send">My Cart</a></li>
-                <?php if(!$this->session->has_userdata('authenticated')) {?>
+              <?php if(!$this->session->has_userdata('authenticateds')){?>
                 <li class="account"><a href="<?php echo base_url();?>login">Login</a></li>
                 <li class="account"><a href="signup">Sign-up</a></li>
                 <?php } ?>
-                <?php if($this->session->has_userdata('authenticated')) {?>
-                <li class="account"><a href="myaccount"><?=  $this->session->userdata('auth_customer')['Full_Name'];  ?></a></li>
+                <?php if($this->session->has_userdata('authenticateds')) {?>
+                <li class="account"><a href="myaccount"><?= $this->session->userdata('user_data')['Full_Name'];  ?></a></li>
+                <li class="account"><a href="<?= base_url('logout')?>">Logout</a></li>
                 <?php } ?>
-                <?php if(!$this->session->has_userdata('authenticated')) {?>
-                <li class="account"><a href="">My Account</a></li>
+                <?php if(!$this->session->has_userdata('authenticateds')) {?>
+                <li class="account"><a href="myaccount">My Account</a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -317,8 +318,8 @@
                         <div class="alert alert-success alert-dismissible text-center " role="alert" id="hide">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
                         <i class="icon fa fa-cheack"></i> <?= $this->session->flashdata('statuss');?>
-                       
                         </div>
+                        <?php unset($_SESSION['statuss']);?>
                     <?php  endif; ?>
                       <form id="login-form" action="<?=base_url('login');?>" method="POST">
                         <div class="form-group">
@@ -334,17 +335,19 @@
                           <label for="remember"> Remember Me</label>
                         </div>
                       
-                           
+                     
                         <div class=" text-center mb-3 ">
                         <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control md-6 btn btn-login" value="Log In">
                           <p>- OR -</p>
                           <a href="#" class="btn  btn-block ">
                             <i class="fa fa-facebook mr-2"></i> Sign in using Facebook
                           </a>
-                          <a href="#" class=" btn-block btn">
+
+                          <a href="<?=$data?>" class=" btn-block btn">
                              <i class="fa fa-google mr-2"></i> Sign in using Google+
                           </a>
                         </div>
+                     
                         <div class="form-group">
                           <div class="row">
                             <div class="col-lg-12">

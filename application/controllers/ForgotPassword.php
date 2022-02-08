@@ -51,12 +51,12 @@ class ForgotPassword extends CI_Controller
        
                     /* SMTP configuration */
                     $mail->isSMTP();
-                    $mail->Host     = 'mail.smtp2go.com';
+                    $mail->Host     = 'smtp.gmail.com';
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'spcc.edu.ph';
-                    $mail->Password = 'Spcc1978';
-                    $mail->SMTPSecure = 'tls';
-                    $mail->Port     = 2525;
+                    $mail->Username = 'pharmacyshop2021@gmail.com';
+                    $mail->Password = 'zuhtksxuytllwhoe';
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->Port     = 465;
        
                     $mail->setFrom('pharmacyshop2021@gmail.com');
                     // $mail->addReplyTo('');
@@ -74,7 +74,7 @@ class ForgotPassword extends CI_Controller
                     /* Set email format to HTML */
                     $mail->isHTML(true);
                     
-                    $link = "http://192.168.1.13/PharmacyV.1/ChangePassword?recovery_token=$recovery_token";
+                    $link = "http://localhost:8000/PharmacyV.1/ChangePassword?recovery_token=$recovery_token";
                     /* Email body content */
                     $mailContent = "<p>Hi $email </p>
                     <p>You have received your recovery token you are now able to recover your account</p>
@@ -134,7 +134,7 @@ class ForgotPassword extends CI_Controller
                    $this->session->set_flashdata('r_status','Your recovery token is already use!'); 
                    redirect('forgotpassword');
                 }
-                elseif($check_verify->Verify==1) {
+                elseif($check_verify->Verify==1){
                    $forgotpass->update_verify_status($recovery_token);
                  }
              }else{
@@ -156,8 +156,8 @@ class ForgotPassword extends CI_Controller
                 {
                   $verify_status = 3;
                   $check_verify = $forgotpass->update_verify_status($verify_status,$recovery_token);
-                  $this->session->set_flashdata('r_status','Your recovery token is already use!'); 
-                  redirect('forgotpassword');
+                  $this->session->set_flashdata('statuss','Your password is successfuly change!'); 
+                  redirect('login');
                 }else {
                     echo "error";
                 }

@@ -7,8 +7,8 @@ class CustomerHome extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->session->has_userdata('authenticated');
-        
+      
+     
     }
 
     public function Home($page='home')
@@ -17,8 +17,9 @@ class CustomerHome extends CI_Controller
         {
           show_404();
         }
+        $data['userdata']="";
        $this->load->view('templates/header');
-       $this->load->view('CustomerPages/home');
+       $this->load->view('CustomerPages/home',$data);
        $this->load->view('templates/footer');
     }
 

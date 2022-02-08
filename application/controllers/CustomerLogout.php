@@ -11,9 +11,11 @@ class CustomerLogout extends CI_Controller{
 
     public function logout()
     {
+        $this->session->unset_userdata('access_token');
+        $this->session->unset_userdata('google_authenticated');
+        $this->session->unset_userdata('user_data');
         $this->session->unset_userdata('authenticated');
         $this->session->unset_userdata('auth_customer');
-        $this->session->set_flashdata('statuss','Logout successfully!'=== 0);
         redirect(base_url('login'));
     }
 }

@@ -49,11 +49,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-
+$route['admin_product']['GET'] = 'Admin_Product/product';
+$route['addproduct']['POST'] = 'Admin_Product/addproduct';
+$route['admin_product'] = 'Admin_Product/display_product';
+$route['update_product']['POST'] = 'Admin_Product/update_product';
+$route['delete'] = 'Admin_Product/delete_product';
+$route['admin_dashboard'] = 'Admin_Dashboard/dashboard';
 $route['signup']['GET'] = 'CustomerSignUp/SignUp_Form';
 $route['signup']['POST'] = 'CustomerSignUp/SignUp';
 $route['login']['GET'] = 'CustomerLogin/login_Form';
 $route['login']['POST'] = 'CustomerLogin/login';
+$route['form'] ='CustomerLogin/form';
 $route['logout'] = 'CustomerLogout/logout';
 $route['forgotpassword']['GET']= 'ForgotPassword/forgotpass_form';
 $route['ChangePassword'] = 'ForgotPassword/get_recovery_token';
@@ -63,8 +69,7 @@ $route['checkout'] = 'CustomerCheackOut/checkout';
 $route['myaccount'] = 'CustomerAccount/myaccount';
 $route['send'] = 'mail/send';
 $route['EmailVerify'] = 'EmailVerify/verify';
-$route['default_controller'] = 'CustomerHome/Home';
-
+$route['default_controller'] = 'CustomerLogin/login_Form';
 $route['(:any)'] = 'CustomerHome/Home/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

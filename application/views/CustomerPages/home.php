@@ -45,19 +45,34 @@
                   </ul>
                 </li>
               </ul>
-            </div>
+            </div> 
+            <?php
+               $userdata="";
+               $authenticated="";
+               if($this->session->has_userdata('google_authenticated'))
+               {
+                 $userdata = $this->session->userdata('user_data');
+                 $authenticated =  $this->session->has_userdata('google_authenticated');
+               }elseif($this->session->has_userdata('authenticated')){
+                 $userdata = $this->session->userdata('auth_customer');
+                 $authenticated  =$this->session->has_userdata('authenticated');
+               }else {
+        
+                 $authenticated  =$this->session->has_userdata('authenticated');
+               }
+            ?>
             <div class="col-sm-6">
               <ul class="header-top-right text-right">
                 <li class="cart"><a href="cart">My Cart</a></li>
-                <?php if(!$this->session->has_userdata('authenticated')) {?>
+                <?php if(!$authenticated){?>
                 <li class="account"><a href="<?php echo base_url();?>login">Login</a></li>
                 <li class="account"><a href="signup">Sign-up</a></li>
                 <?php } ?>
-                <?php if($this->session->has_userdata('authenticated')) {?>
-                <li class="account"><a href="myaccount"><?=  $this->session->userdata('auth_customer')['Full_Name'];  ?></a></li>
+                <?php if($authenticated) {?>
+                <li class="account"><a href="myaccount"><?=$userdata['Full_Name'];?></a></li>
                 <li class="account"><a href="<?= base_url('logout')?>">Logout</a></li>
                 <?php } ?>
-                <?php if(!$this->session->has_userdata('authenticated')) {?>
+                <?php if(!$authenticated) {?>
                 <li class="account"><a href="myaccount">My Account</a></li>
                 <?php } ?>
               </ul>
@@ -123,8 +138,8 @@
                       <form action="cart_page.html">
                         <input class="btn pull-left mt_10" value="View cart" type="submit">
                       </form>
-                      <form action="<?=base_url('checkout')?>">
-                        <input class="btn pull-right mt_10" value="Checkout" type="submit">
+                      <form action="">
+                        <a href="checkout" class="btn pull-right mt_10">Checkout</a>
                       </form>
                     </li>
                   </ul>

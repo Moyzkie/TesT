@@ -41,9 +41,14 @@ public function SignUp()
 
     $number_count = $cheak_number->cheack_number($entered_number);
 
+    $cid=rand(1000000000000000000,9000000000000000000);
+
+    
+   
     if($this->form_validation->run()==FALSE)
     {
-    $this->SignUp_Form();
+         $this->SignUp_Form();
+        
     }else{
    
     if($emailcount->num_rows()<=0 && $number_count->num_rows()<=0)
@@ -51,6 +56,7 @@ public function SignUp()
     $verify_token = md5(rand());
     $current_datetime = date('Y-m-d H:i:s');
     $data = array(
+    'Customer_id' => $cid, 
     'User_Name' => $this->input->post('username'),
     'Full_Name' => $this->input->post('fullname'),
     'Gender' => $this->input->post('gender'),

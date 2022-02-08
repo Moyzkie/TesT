@@ -8,11 +8,7 @@ class CustomerAccount extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Authentication');
-        if(!$this->session->has_userdata('authenticated'))
-        {
-            $this->session->set_flashdata('statuss','Login first!');
-            redirect('login');
-        }
+       
     }
 
     public function myaccount()
